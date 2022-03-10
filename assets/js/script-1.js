@@ -5,12 +5,6 @@ var startButton = document.getElementById("start");
 var submitButton = document.getElementById("submit");
 var quizContainer = document.getElementById("quiz");
 var showResults = document.getElementById("results");
-// var previousButton = document.getElementById("prev")
-// var nextButton = document.getElementById("next")
-// var slides = document.getElementById(".slide")
-
-// let currentSlide = 0;
-
 
 //Questions
 var myQuestions = [
@@ -78,18 +72,16 @@ function startQuiz(questions, quizContainer, showResults, submitButton, startBut
 
             //add question and answers to the output
             userInput.push(
-
-                // Showing questions one at a time
-                // '<div class="slide">'
-                    //add questions and add answers
-                    // +
-                '<div class="question">' + questions[i].question + '</div>'
-                + '<div class="answers">' + answers.join('') + '</div>' 
-                // + '</div>'
-                
+                //add questions and add answers
                 //template literal
-                // `<div class="question"> ${questions[i].question} </div>
-                // <div class="answers"> ${answers.join('')} </div>` 
+
+                `<div class="slide">
+                    <div class="question"> ${questions[i].question} </div>
+                    <div class="answers"> ${answers.join("")} </div>
+                </div>`
+                
+                // '<div class="question">' + questions[i].question + '</div>' + '<div class="answers">' + answers.join('') + '</div>'
+                
                 
             );
         }
@@ -112,10 +104,6 @@ function startQuiz(questions, quizContainer, showResults, submitButton, startBut
             //find the chosen answer
             userAnswer = (answerContainers[i].querySelector("input[name=question" + i + "]:checked") || {}).value;
 
-            // var selector = `input[name=question${i}]:checked`;
-            // userAnswer = (answerContainer[i].querySelector(selector) || {}).value;
-            //can i use just querySelector like this??
-
             //if the answer is correct
             if(userAnswer === questions[i].correctAnswer){
                 //number of correct answers goes up
@@ -137,57 +125,64 @@ function startQuiz(questions, quizContainer, showResults, submitButton, startBut
         showResults.innerHTML = numCorrect + " out of " + questions.length;
     }
 
-
-    //Timer - work on it more later
-    //grabbed snippet from stack overflow
-
-//     function countdown() {
-//         var count = 15;
-//         var timeInterval = setInterval(function () {
-//         document.getElementById('count').innerHTML = count;
-//         count--;
-//         if (count === 0){
-//             clearInterval(interval);
-//             document.getElementById('count').innerHTML='Done';
-//             // or...
-//             alert("You're out of time!");
-//         }
-//         }, 1000);
-//     }
-
-// startButton.onclick = function(){
-//     countdown()
-// }
-
     displayQuestions(questions, quizContainer);
-
 
     submitButton.onclick = function(){
         quizResults(questions, quizContainer, showResults)
     }
-
-    
-
-
-    // previousButton.onclick = function(){
-    //     showPreviousSlide
-    // }
-
-    // nextButton.onclick = function(){
-    //     showNextSlide
-    // }
 }
+
+//pagination functions
+function showSlide(n) {
+    //hides the current slide on screen
+    slides[currentSlide].classList.remove("active-slide");
+    //shows the new slide
+    slides[n].classList.add("active-slide");
+    //updates the slide number
+    currentSlide = n;
+
+    //if on the first question, then there is no previous button
+    if(currentSlide === 0){
+        previousButton.style.display = "none";
+    //otherwise there is a previous button
+    } else {
+        previousButton.style.display = "inline-block";
+    }
+    //if on the last question there is no next button and submit is shown
+    if(currentSlide === slides.length-1){
+        nextButton.style.display = "none";
+        submitButton.style.display = "inline-block";
+    //otherwise there is a next button and submit is hidden    
+    } else {
+        nextButton.style.display = "inline-block";
+        submitButton.style.display = "none";
+    }
+}
+
+
+
 
 startQuiz(myQuestions, quizContainer, showResults, submitButton);
 
-// var previousButton = document.getElementById("prev")
-// var nextButton = document.getElementById("next")
-// var slides = document.getElementById(".slide")
+//pagination
+var previousButton = document.getElementById("previous");
+var nextButton = document.getElementById("next");
+var slides = document.querySelectorAll(".slide");
 
-// let currentSlide = 0;
+let currentSlide = 0;
+
+showSlide(currentSlide);
+
+function showNextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+}
 
 
-// showSlide(currentSlide);
+//event listeners
 
-// previousButton.addEventListener("click", showPreviousSlide);
-// nextButton.addEventListener("click", showNextSlide);
+previousButton.addEventListener("click", showPreviousSlide);
+nextButton.addEventListener("click", showNextSlide);
