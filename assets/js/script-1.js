@@ -1,20 +1,28 @@
+
+
 // variables
 var startButton = document.getElementById("start");
 var submitButton = document.getElementById("submit");
 var quizContainer = document.getElementById("quiz");
 var showResults = document.getElementById("results");
+// var previousButton = document.getElementById("prev")
+// var nextButton = document.getElementById("next")
+// var slides = document.getElementById(".slide")
+
+// let currentSlide = 0;
+
 
 //Questions
 var myQuestions = [
     {
-       question: "Which of the following displays a string data type?" ,
-       answers: {
-           a: "var a = 20",
-           b: "var a = 'abcde'",
-           c: "var a = true "
-       },
-       
-       correctAnswer: "b"
+    question: "Which of the following displays a string data type?" ,
+    answers: {
+        a: "var a = 20",
+        b: "var a = 'abcde'",
+        c: "var a = true "
+    },
+    
+    correctAnswer: "b"
     },
     {
         question: "Which of the following is a single line comment in Javascript? ",
@@ -24,14 +32,14 @@ var myQuestions = [
             c: "//This is a comment"
         },
         correctAnswer: "c"
-     }
+    }
 ];
 
 //STRUCTURE
 
 //Quiz Container
-function startQuiz(questions, quizContainer, showResults, submitButton){
-   
+function startQuiz(questions, quizContainer, showResults, submitButton, startButton){
+
 
     // Display quiz questions
     function displayQuestions(questions, quizContainer){
@@ -57,7 +65,7 @@ function startQuiz(questions, quizContainer, showResults, submitButton){
                         + '<input type="radio" name="question'+i+'" value="'+letter+'">'
                         + letter + ': '
                         + questions[i].answers[letter]
-				    + '</label>'
+                    + '</label>'
                 
                     
                     // `<label>
@@ -71,15 +79,18 @@ function startQuiz(questions, quizContainer, showResults, submitButton){
             //add question and answers to the output
             userInput.push(
 
-                //add questions and add answers
+                // Showing questions one at a time
+                // '<div class="slide">'
+                    //add questions and add answers
+                    // +
+                '<div class="question">' + questions[i].question + '</div>'
+                + '<div class="answers">' + answers.join('') + '</div>' 
+                // + '</div>'
+                
                 //template literal
-
                 // `<div class="question"> ${questions[i].question} </div>
                 // <div class="answers"> ${answers.join('')} </div>` 
                 
-                '<div class="question">' + questions[i].question + '</div>'
-                + '<div class="answers">' + answers.join('') + '</div>'
-
             );
         }
 
@@ -126,6 +137,28 @@ function startQuiz(questions, quizContainer, showResults, submitButton){
         showResults.innerHTML = numCorrect + " out of " + questions.length;
     }
 
+
+    //Timer - work on it more later
+    //grabbed snippet from stack overflow
+
+//     function countdown() {
+//         var count = 15;
+//         var timeInterval = setInterval(function () {
+//         document.getElementById('count').innerHTML = count;
+//         count--;
+//         if (count === 0){
+//             clearInterval(interval);
+//             document.getElementById('count').innerHTML='Done';
+//             // or...
+//             alert("You're out of time!");
+//         }
+//         }, 1000);
+//     }
+
+// startButton.onclick = function(){
+//     countdown()
+// }
+
     displayQuestions(questions, quizContainer);
 
 
@@ -133,8 +166,28 @@ function startQuiz(questions, quizContainer, showResults, submitButton){
         quizResults(questions, quizContainer, showResults)
     }
 
-}
+    
 
+
+    // previousButton.onclick = function(){
+    //     showPreviousSlide
+    // }
+
+    // nextButton.onclick = function(){
+    //     showNextSlide
+    // }
+}
 
 startQuiz(myQuestions, quizContainer, showResults, submitButton);
 
+// var previousButton = document.getElementById("prev")
+// var nextButton = document.getElementById("next")
+// var slides = document.getElementById(".slide")
+
+// let currentSlide = 0;
+
+
+// showSlide(currentSlide);
+
+// previousButton.addEventListener("click", showPreviousSlide);
+// nextButton.addEventListener("click", showNextSlide);
