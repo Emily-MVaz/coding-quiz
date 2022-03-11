@@ -28,26 +28,38 @@ var myQuestions = [
     correctAnswer: "c"
     },
     {
-    question: "Which of the following displays a string data type?" ,
+    question: "How do you create a function in JavaScript",
     answers: {
-        a: "var a = 20",
-        b: "var a = 'abcde'",
-        c: "var a = true "
+        a: "function = myFunction()",
+        b: "function myFunction('",
+        c: "function:myFunction()",
+        d: "createMyFunction()",
     },
     correctAnswer: "b"
     },
-    {question: "Which of the following displays a string data type?" ,
+    {question: "The first index of an array is ____." ,
     answers: {
-        a: "var a = 20",
-        b: "var a = 'abcde'",
-        c: "var a = true "
+        a: "0",
+        b: "1",
+        c: "10",
+        d: "-1"
     },
-    
-    correctAnswer: "b"
+    correctAnswer: "a"
+    },
+    {question: "Arrays in JavaScript can be used to store _____.",
+    answers: {
+        a: "numbers and strings",
+        c: "booleans",
+        b: "other arrays",
+        d: "all of the above",
+    },
+    correctAnswer: "c"
     },
 ];
 
 //STRUCTURE
+
+
 
 //Quiz Container
 function startQuiz(questions, quizContainer, showResults, submitButton){
