@@ -15,39 +15,54 @@
   <meta property="og:image" content="image.png">
 
   <link rel="stylesheet" href="./assets/css/stylesheet.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka">
 
 </head>
 
 <body>
+  <h1>JavaScript Quiz</h1>
 
-    <!-- quiz box -->
-    <div class="quiz-box">
-      <div id="quiz"></div>
+  <!-- highscore and timer bar -->
+  <div class="row">
+    <!-- highscores -->
+    <div id="highscore">High Scores</div>
+    <!-- timer -->
+    <div id="timerDisplay">
+      Time: <span id="timeLeft">0</span>
     </div>
+  </div>
 
-    
-    <!-- start button -->
-    <!-- Do i actually need this button???? -->
-    <div id="count">
-        <button>Start</button>
-    </div>
+  <!-- quiz box -->
+  <div class="quiz-box">
+    <div id="quiz"></div>
+  </div>
 
-    <!-- previous question button -->
-    <button id="prev">Previous Question</button>
-    
-    
-    <!-- next question button -->
-    <button id="next">Next Question</button>
-    
+  <!-- start button -->
+  <!-- Do i actually need this button???? -->
+  <div id="count">
+    <button>Start</button>  
+  </div>
 
-    <!-- submit button -->
-    <div id="submit">
-        <button>Submit</button>
-    </div>
+  <!-- previous question button -->
+  <button id="previous">Previous Question</button>
+  
+  
+  <!-- next question button -->
+  <button id="next">Next Question</button>
+  
+
+  <!-- submit button -->
+  <div id="submit">
+      <button>Submit Quiz</button>
+  </div>
 
 
-    <!-- show results -->
-    <div id="results"></div>
+  <!-- show results -->
+  <div id="results"></div>
+
+  
+  <!-- STILL TESTING -->
+
 
   <script src="./assets/js/script-1.js"></script>
 </body>

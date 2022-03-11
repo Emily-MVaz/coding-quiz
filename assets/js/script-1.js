@@ -19,20 +19,38 @@ var myQuestions = [
     correctAnswer: "b"
     },
     {
-        question: "Which of the following is a single line comment in Javascript? ",
-        answers: {
-            a: "This is a comment",
-            b: "/* This is a comment */",
-            c: "//This is a comment"
-        },
-        correctAnswer: "c"
-    }
+    question: "Which of the following is a single line comment in Javascript? ",
+    answers: {
+        a: "This is a comment",
+        b: "/* This is a comment */",
+        c: "//This is a comment"
+    },
+    correctAnswer: "c"
+    },
+    {
+    question: "Which of the following displays a string data type?" ,
+    answers: {
+        a: "var a = 20",
+        b: "var a = 'abcde'",
+        c: "var a = true "
+    },
+    correctAnswer: "b"
+    },
+    {question: "Which of the following displays a string data type?" ,
+    answers: {
+        a: "var a = 20",
+        b: "var a = 'abcde'",
+        c: "var a = true "
+    },
+    
+    correctAnswer: "b"
+    },
 ];
 
 //STRUCTURE
 
 //Quiz Container
-function startQuiz(questions, quizContainer, showResults, submitButton, startButton){
+function startQuiz(questions, quizContainer, showResults, submitButton){
 
 
     // Display quiz questions
@@ -118,6 +136,7 @@ function startQuiz(questions, quizContainer, showResults, submitButton, startBut
                 
                 //answers turn red
                 answerContainers[i].style.color = "red";
+
             }
         }
 
@@ -159,8 +178,22 @@ function showSlide(n) {
     }
 }
 
-
-
+// Timer functions -- STILL TESTING
+(function() {
+    var sec = 150;
+    function startTimer(){
+        var timer = setInterval(function(){
+            sec--;
+            document.getElementById('timerDisplay').innerHTML='00:'+sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!")
+            }
+        }, 1000);
+    }
+    
+    startTimer();
+})();
 
 startQuiz(myQuestions, quizContainer, showResults, submitButton);
 
@@ -183,6 +216,5 @@ function showPreviousSlide() {
 
 
 //event listeners
-
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);

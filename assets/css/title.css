@@ -1,0 +1,25 @@
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 35px;
+    background-color: cornflowerblue;
+}
+
+#title h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+#title p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+}

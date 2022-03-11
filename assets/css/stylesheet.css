@@ -1,3 +1,70 @@
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 35px;
+    color: aliceblue;
+    background-color: rgb(107, 155, 245);
+}
+
+/* .row {
+    display: flex;
+    flex-direction: row;
+} */
+
+#highscore {
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(107, 155, 245); 
+}
+
+#timerDisplay {
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(107, 155, 245); 
+}
+
+#title h2 {
+    font-size: 35px;
+}
+
+#title p {
+    font-size: 19px;
+}
+
+body{
+    text-align: center;
+    font-family: Fredoka;
+}
+
+
+.question {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+.answers {
+    font-size: 25px;
+    margin-bottom: 6px;
+    text-align: left;
+    display: inline-block;
+}
+
+.answers label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 20px;
+    font-family: Fredoka;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 0px;
+    border-radius: 5px;
+}
+
 .slide {
     position: absolute;
     left: 0px;
@@ -13,7 +80,7 @@
     z-index: 2;
 }
   
-.quiz-container {
+.quiz-box {
     position: relative;
     height: 200px;
     margin-top: 40px;
